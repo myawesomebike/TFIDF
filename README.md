@@ -1,6 +1,6 @@
 # TF-IDF Crawler
 
-The TF-IDF Crawler is composed of several modules to crawl and extract site content, identify key content and on-page topics using ngrams, and creating TF-IDF scores for discovered ngrams across all crawled pages.  Crawled pages can also be tagged with a category to perform category-level TF-IDF analysis.
+The TF-IDF Crawler is composed of several modules to crawl and extract site content, identify keywords and on-page topics using ngrams, and creating TF-IDF scores for discovered ngrams across all crawled pages.  Crawled pages can also be tagged with a category to perform category-level TF-IDF analysis.
 
 ## Background
 
@@ -10,7 +10,7 @@ Ngrams (`n-`gram) are groups of one or more words and phrases that have been ext
 
 [TF-IDF](http://www.tfidf.com/) scoring is a combination of `term frequency` (how often an ngram appears within a document) and `inverse document frequency` which indicates how often an ngram appears across all documents in the corpus.
 
-Using TF and IDF together eliminates words that occur across all content (as they are not unique).  TF-IDF scores can also reveal unique ngrams that are only used with a limit set of documents within the corpus.
+Using TF and IDF together eliminates words that occur across all content (as they are not unique).  TF-IDF scores can also reveal unique ngrams that are only used with a limited set of documents within the corpus.
 
 Some usecases for TF-IDF scores are to identify when keywords or topics are repeated over multiple documents, finding the most relevant document in a large corpus for target ngrams, and comparing TF-IDF scores between two similar corpuses to identify overlapping content or content gaps.
 
@@ -71,11 +71,14 @@ Ten posts from each blog section were included in the analysis and their documen
 
 If an ngram appears across all documents in a corpus then its TF-IDF score will be 0 and there will be no relevant document.
 
+![Non-unique ngrams](https://github.com/myawesomebike/TFIDF/raw/main/img-frequent.png)
+
 The terms above appear on all Github blog pages that were analyzied.
 
 ### Finding unique and relevant ngrams by page
 
 Looking at TF-IDF scores by document will show which ngrams were most-associated or unqiue to that document.
 
+![Relevant document ngrams](https://github.com/myawesomebike/TFIDF/raw/main/img-unique.png)
 
 Term frequency can be used to determine if other documents contain a ngram and indicate how relevant this document is if the ngram is used often elsewhere.
